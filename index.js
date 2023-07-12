@@ -2,6 +2,8 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const path = require('path');
+const cookieParser = require('cookie-parser');
 
 // listen port
 const port = process.env.PORT || 5000;
@@ -27,7 +29,14 @@ mongoose.connect(mongoURI, {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// set view enjine
+app.set("view enjine", "ejs")
 
+// set static folder
+app.use(express.static(path.join(__dirname, "public")))
+
+// cookie parser
+app.use(cookieParser(process.env.COOKIE_PARSER))
 
 
 

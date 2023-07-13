@@ -8,6 +8,8 @@ const cookieParser = require('cookie-parser');
 // internal exports
 const { notFoundHandler, errorHandler } = require('./middleware/common/ErrorHandler');
 const loginRouter = require('./router/loginRouter');
+const usersRouter = require('./router/usersRouter');
+const inboxRouter = require('./router/inboxRouter');
 
 
 // listen port
@@ -48,8 +50,8 @@ app.use(cookieParser(process.env.COOKIE_PARSER))
 // app routing 
 
 app.use('/', loginRouter)
-// app.use('/users', usersRouter)
-// app.use('/inbox', inboxRouter)
+app.use('/users', usersRouter)
+app.use('/inbox', inboxRouter)
 
 
 // 404 error handling

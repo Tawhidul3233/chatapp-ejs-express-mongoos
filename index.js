@@ -1,9 +1,13 @@
-// Import the required dependencies
+// External Import the required dependencies
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+
+// internal exports
+const { notFoundHandler, errorHandler } = require('./middleware/common/ErrorHandler');
+
 
 // listen port
 const port = process.env.PORT || 5000;
@@ -27,10 +31,11 @@ mongoose.connect(mongoURI, {
 
 // request parses
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }));
 
 // set view enjine
-app.set("view enjine", "ejs")
+app.set("view engine", "ejs")
 
 // set static folder
 app.use(express.static(path.join(__dirname, "public")))
@@ -39,12 +44,21 @@ app.use(express.static(path.join(__dirname, "public")))
 app.use(cookieParser(process.env.COOKIE_PARSER))
 
 
+// app routing 
 
+
+
+
+// 404 error handling
+app.use(notFoundHandler)
+
+//  common error handler
+app.use(errorHandler)
 
 // default route hit
-app.get('/', (req, res) => {
-  res.send('Server runing')
-})
+// app.get('/', (req, res) => {
+//   res.send('Server runing')
+// })
 
 // Start the Express application
 app.listen(port, () => {

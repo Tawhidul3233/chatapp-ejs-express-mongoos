@@ -12,6 +12,7 @@ const usersRouter = require('./router/usersRouter');
 const inboxRouter = require('./router/inboxRouter');
 
 
+
 // listen port
 const port = process.env.PORT || 5000;
 
@@ -49,9 +50,9 @@ app.use(cookieParser(process.env.COOKIE_PARSER))
 
 // app routing 
 
-app.use('/', loginRouter)
-app.use('/users', usersRouter)
-app.use('/inbox', inboxRouter)
+app.use('/',  loginRouter)
+app.use('/users',  usersRouter)
+app.use('/inbox',  inboxRouter)
 
 
 // 404 error handling

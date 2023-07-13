@@ -1,8 +1,6 @@
 // get login page
 const getLogin = (req, res, next) => {
-  res.render('index', {
-    title: 'Login - chat application'
-  })
+  res.render('index')
 }
 
 

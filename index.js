@@ -12,7 +12,6 @@ const usersRouter = require('./router/usersRouter');
 const inboxRouter = require('./router/inboxRouter');
 
 
-
 // listen port
 const port = process.env.PORT || 5000;
 
@@ -61,10 +60,20 @@ app.use(notFoundHandler)
 //  common error handler
 app.use(errorHandler)
 
+
+
 // default route hit
 // app.get('/', (req, res) => {
 //   res.send('Server runing')
 // })
+
+
+// default route hit 
+// app.get('/', (req,res)=>{
+//   res.send('Server runing')
+// })
+
+
 
 // Start the Express application
 app.listen(port, () => {

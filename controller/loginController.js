@@ -4,7 +4,6 @@ const getLogin = (req, res, next) => {
 }
 
 
-
 module.exports = {
   getLogin
 }

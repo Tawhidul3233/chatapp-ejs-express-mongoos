@@ -35,7 +35,9 @@
       </div>
     </div>
 
-    <div class="modal-wrapper" id="add-user-modal">
+    <%- include('./partials/add-user-modal.ejs'); %>
+
+    <!-- <div class="modal-wrapper" id="add-user-modal">
       <div class="modal">
         <a href="#" onclick="closeModal()" class="modal-close">+</a>
         <div class="modal-title">
@@ -58,6 +60,7 @@
         </div>
       </div>
     </div>
+
     <script>
       const modal = document.querySelector("#add-user-modal");
       function closeModal() {
@@ -66,6 +69,6 @@
       function openModal() {
         modal.style.display = "block";
       }
-    </script>
+    </script> -->
   </body>
 </html>
